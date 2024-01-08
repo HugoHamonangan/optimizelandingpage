@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link type="text/css" href="./build.css" rel="stylesheet" />
+    <link type="text/css" href="./style.css" rel="stylesheet" />
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <title>Document</title>
+</head>
+
+<body x-data="{sidebar : false, scrolled : false}">
+    <header x-on:scroll.window="scrolled = window.scrollY > 100" :class="{ '-translate-y-[1.5rem]': scrolled }"
+        class="pb-5 bg-white fixed w-full top-0 left-0 z-20 transition-all">
+        <div x-on:scroll.window="scrolled = window.scrollY > 100" :class="{ 'opacity-0 invicible ': scrolled }"
+            class="hidden lg:block gap-5 w-full transition-all mx-auto mt-1 mb-3 pb-1"
+            style="border-bottom: 1px solid black">
+            <div class="container flex justify-between mx-auto">
+                <pre class="text-[.8em]">| Alamat : Perum Cendana F12 No.11 Kel. Belian Kec. Batam Kota – Batam |</pre>
+                <pre class="text-[.8em]">| No Hp : +62 822 2226 6400 |</pre>
+                <pre class="text-[.8em]">| Email : dodikad@gmail.com |</pre>
+            </div>
+
+        </div>
+        <marquee x-on:scroll.window="scrolled = window.scrollY > 100" :class="{ 'opacity-0 invicible ': scrolled }"
+            class="inline-block lg:hidden py-1" style="border-bottom: 1px solid black">
+            Alamat : Perum Cendana F12 No.11 Kel. Belian Kec. Batam Kota – Batam //
+            No Hp : +62 822 2226 6400 //
+            Email : dodikad@gmail.com //
+        </marquee>
+        <div class="container mx-auto flex items-center justify-between relative w-[93%] md:w-full pt-3">
+            <img src="./assets/logo.png" alt="logo" class="w-[13rem] ml-2 sm:ml-0" />
+
+            <svg>
+                <defs>
+                    <filter id="gooeyness">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="blur" />
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10"
+                            result="gooeyness" />
+                        <feComposite in="SourceGraphic" in2="gooeyness" operator="atop" />
+                    </filter>
+                </defs>
+            </svg>
+            <div x-ref="bars" x-on:click="sidebar = !sidebar"
+                class="plate plate1 block lg:hidden cursor-pointer relative" onclick="this.classList.toggle('active')">
+                <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                    <path class="line line1" d="M 30,65 H 70" />
+                    <path class="line line2"
+                        d="M 70,50 H 30 C 30,50 18.644068,50.320751 18.644068,36.016949 C 18.644068,21.712696 24.988973,6.5812347 38.79661,11.016949 C 52.604247,15.452663 46.423729,62.711864 46.423729,62.711864 L 50.423729,49.152542 L 50.423729,16.101695" />
+                    <path class="line line3"
+                        d="M 30,35 H 70 C 70,35 80.084746,36.737688 80.084746,25.423729 C 80.084746,19.599612 75.882239,9.3123528 64.711864,13.559322 C 53.541489,17.806291 54.423729,62.711864 54.423729,62.711864 L 50.423729,49.152542 V 16.101695" />
+                </svg>
+                <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                    <path class="line" d="M 34,32 L 66,68" />
+                    <path class="line" d="M 66,32 L 34,68" />
+                </svg>
+            </div>
+
+            <nav class="hidden lg:block">
+                <ul class="flex gap-5">
+                    <li>
+                        <a class="py-2 relative group" href="#beranda">
+                            Beranda
+                            <span
+                                class="w-0 group-hover:w-full transition-[500ms] bg-black absolute h-[0.1rem] bottom-0 left-0"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="py-2 relative group" href="#tentangKami">
+                            Tentang Kami
+                            <span
+                                class="w-0 group-hover:w-full transition-[500ms] bg-black absolute h-[0.1rem] bottom-0 left-0"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="py-2 relative group" href="#layanan">Layanan
+                            <span
+                                class="w-0 group-hover:w-full transition-[500ms] bg-black absolute h-[0.1rem] bottom-0 left-0"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="py-2 relative group" href="#mitradanukm">Mitra
+                            <span
+                                class="w-0 group-hover:w-full transition-[500ms] bg-black absolute h-[0.1rem] bottom-0 left-0"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="py-2 relative group" href="#legalitas">Legalitas Perusahaan
+                            <span
+                                class="w-0 group-hover:w-full transition-[500ms] bg-black absolute h-[0.1rem] bottom-0 left-0"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="py-2 relative group" href="#kontak">Kontak
+                            <span
+                                class="w-0 group-hover:w-full transition-[500ms] bg-black absolute h-[0.1rem] bottom-0 left-0"></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <a href="#" class="hidden lg:block px-5 py-2 border-2 transition-all bg-[#0017ed] text-white">
+                Login
+            </a>
+        </div>
+    </header>
+
+    <div class="w-full h-[100dvh] lg:hidden bg-black opacity-0 invisible z-[25] fixed bottom-0 left-0 transition-[300ms]"
+        x-on:click="$refs.bars.click()"
+        x-bind:class="{'opacity-50 visible': sidebar, 'opacity-0 invisible' : !sidebar}"></div>
+
+    <aside x-cloak
+        class="fixed lg:hidden z-30 top-0 left-0 flex items-start justify-start w-[70%] max-w-[20rem] h-screen overflow-hidden bg-white -translate-x-[30rem] custom-transition"
+        x-bind:class="{'-translate-x-[0]' : sidebar, '-translate-x-[30rem]' : !sidebar}">
+        <nav class="p-7 w-full">
+            <ul class="flex flex-col gap-0 justify-start items-start relative h-[90dvh]">
+                <li class="block w-full">
+                    <a x-on:click="$refs.bars.click()" class="block w-full py-3" href="#beranda">Beranda</a>
+                </li>
+                <li class="block w-full">
+                    <a x-on:click="$refs.bars.click()" class="block w-full py-3" href="#tentangKami">Tentang Kami</a>
+                </li>
+                <li class="block w-full">
+                    <a x-on:click="$refs.bars.click()" class="block w-full py-3" href="#layanan">Layanan</a>
+                </li>
+                <li class="block w-full">
+                    <a x-on:click="$refs.bars.click()" class="block w-full py-3" href="#mitradanukm">Mitra</a>
+                </li>
+                <li class="block w-full">
+                    <a x-on:click="$refs.bars.click()" class="block w-full py-3" href="#legalitas">Legalitas
+                        Perusahaan</a>
+                </li>
+                <li class="block w-full">
+                    <a x-on:click="$refs.bars.click()" class="block w-full py-3" href="#kontak">Kontak</a>
+                </li>
+                <li class="block w-full mt-3 absolute bottom-0 left-0">
+                    <a class="block w-full py-3 bg-[#0017ed] text-white text-center" href="#">Login</a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="h-auto md:w-full mt-[11rem] md:mt-[7rem]">
+        <section id="beranda"
+            class="relative flex flex-wrap items-center w-full container mx-auto justify-center gap-12 px-6 md:px-0">
+            <div class="flex flex-col gap-5 flex-1">
+                <h1 class="text-[1.9em] lg:text-[2.5em]">PT Ade Mestakung Abadi.</h1>
+                <p class="leading-9 text-[#333333]">Selamat datang di website profil resmi perusahaan Kami, kami adalah
+                    salah PT yang
+                    menyediakan jasa katering untuk Anda. Kami menyediakan jasa katering berupa Katering Kantor, Pabrik
+                    dan Umum / Masyarakat Luas.</p>
+                <a href="#"
+                    class="p-4 border border-[#0017ed] bg-[#0017ed] w-fit cursor-pointer text-white transition-all">Hubungi
+                    Kami</a>
+            </div>
+            <img src="./assets/background.svg" alt="backgroundWebsite"
+                class="w-full md:w-[30rem] lg:w-[40rem] object-cover" loading="lazy">
+        </section>
+        <section id="tentangKami" class="flex flex-col gap-[5.5rem] mx-auto pt-[11rem]">
+            <div class="container mx-auto">
+                <div class="flex flex-wrap justify-center gap-7">
+                    <div class=" flex justify-center items-center">
+                        <img src="./assets/fotoprofil.jpg" alt="fotoprofil" class="w-full md:w-[40rem]" loading="lazy">
+                    </div>
+                    <div
+                        class="flex-1 md:px-5 text-[#333333] flex flex-col-reverse md:flex-col justify-between items-stretch px-6">
+                        <p class="leading-8 md:leading-7 md:text-justify  text-[.95em]">
+                            PT. ADE MESTAKUNG ABADI merupakan perusahaan yang telah berpengalaman bergerak di bidang
+                            Katering,
+                            Perdagangan Umum dan Pelayanan Jasa. Pelayanan dan jasa kami mencakup Katering Kantor,
+                            Katering
+                            Pabrik
+                            dan Katering Umum. Dalam menjalankan usaha ini, Perusahaan kami sudah mendapat perizinan
+                            dari
+                            Pemerintah
+                            dan Badan yang berwenang.
+                            Kami Melayani dan menyiapkan semua kebutuhan konsumsi makanan untuk karyawan kantor, pabrik
+                            dan
+                            umum
+                            dengan kapasitas yang banyak , dan kami juga menyiapkan Makanan Pokok dan Makanan Ringan
+                        </p>
+                        <p class="my-[3rem] lg:mt-0 font-bold text-[1.2em]">Dodik Supriyanto - Pemilik PT</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col bg-[#121212] my-10 px-7 py-10 md:px-12">
+                <h1 class="sm:text-center text-[1.7em] text-white md:hidden block">
+                    visi dan misi kami
+                </h1>
+                <div class="flex flex-col container mx-auto flex-wrap text-white my-16 md:gap-7">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="flex flex-col gap-5 flex-1 border-b-[1px] border-r-[1px] px-4 py-7 md:p-7">
+                            <p class="font-bold">01. Kepuasan</p>
+                            <p class="leading-7">Kami memastikan bahwa pelanggan kami puas dengan apa yang kami berikan
+                                untuk mereka, kami
+                                akan terus berusaha untuk tetap mempertahankan rasa kepuasan pelanggan kami dengan
+                                menyajikan pelayanan terbaik</p>
+                        </div>
+                        <div class="flex flex-col gap-5 flex-1 border-b-[1px] border-l-[1px] px-4 py-7 md:p-7">
+                            <p class="font-bold">02. Layanan</p>
+                            <p class="leading-7">Layanan terbaik adalah salah satu yang selalu harus dijunjung tinggi
+                                untuk para
+                                pelanggan, kami telah memenuhi seluruh <a href="#legalitas"
+                                    class="underline">persyaratan</a> yang
+                                dibutuhkan untuk memberikan layanan yang terbaik</p>
+                        </div>
+                    </div>
+                    <h1 class="text-center md:block hidden text-[1.3em]">VISI DAN MISI KAMI</h1>
+                    <div class="flex flex-col md:flex-row">
+                        <div class="flex flex-col gap-5 flex-1 border-t-[1px] border-r-[1px] p-4 py-7 md:p-7">
+                            <p class="font-bold">03. Kualitas</p>
+                            <p class="leading-7">Soal kualitas produk katering kami tidak perlu diragukan lagi, kami
+                                telah bekerja sama dengan
+                                beberapa <a href="#mitradanukm" class="underline">hotel</a> ternama di Batam dan telah
+                                menjalin kerjasama
+                                dengan kurang lebih 40 UKM yang ada di Batam.</p>
+                        </div>
+                        <div class="flex flex-col gap-5 flex-1 border-t-[1px] border-l-[1px] p-4 py-7 md:p-7">
+                            <p class="font-bold">04. Inovasi</p>
+                            <p class="leading-7">Layanan kami juga memberikan inovasi, diluar dari menu yang ada, kami
+                                juga memenuhi
+                                permintaan kue tradisional yang jarang ditemui di pasar pada umumnya.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="layanan" class="container mx-auto px-7 flex flex-wrap justify-center gap-7 items-center py-[7rem]">
+            <div class="flex flex-col gap-5 flex-1 mr-0 md:mr-[7rem]">
+                <h1 class="text-[1.8em]">Apa saja layanan yang kami tawarkan ?</h1>
+                <p class="leading-8 text-[#333333]">Kami akan menyediakan layanan katering, baik untuk karyawan kantor,
+                    pabrik, maupun masyarakat umum dengan kapasitas yang banyak. Di samping itu, kami juga menyajikan
+                    variasi katering pokok dan katering ringan. Layanan kami mencakup katering untuk kantor, pabrik, dan
+                    kebutuhan umum.</p>
+                <a href="#"
+                    class="p-4 border border-[#0017ed] bg-[#0017ed] w-fit cursor-pointer text-white transition-all">Hubungi
+                    Kami</a>
+            </div>
+            <img src="./assets/layanan.png" alt="layanan" class="w-full md:w-[20rem] lg:w-[30rem] mt-5 md:mt-0 ">
+        </section>
+        <section id="mitradanukm" class="container mx-auto pt-[7rem]">
+            <h1 class="text-[1.8em] text-center mb-7">Kami juga bekerja sama dengan beberapa hotel</h1>
+            <div class="flex justify-center items-center flex-wrap gap-5">
+                <img loading="lazy" class="object-cover w-[9rem]" src="./assets/harmonisuits.svg" alt="harmoni">
+                <img loading="lazy" class="object-cover w-[9rem]" src="./assets/bwp.svg" alt="bwp">
+                <img loading="lazy" class="object-cover w-[9rem]" src="./assets/mariott.png" alt="mariott">
+                <img loading="lazy" class="object-cover w-[9rem]" src="./assets/radisson.svg" alt="radisson">
+                <img loading="lazy" class="object-cover w-[9rem]" src="./assets/aston.svg" alt="aston">
+            </div>
+        </section>
+        <section id="legalitas" class="py-[11rem] container mx-auto px-7 md:px-0">
+            <h1 class="mb-11 text-[1.7em] text-center">Surat-Surat Legalitas Perusahaan</h1>
+            <div class="flex flex-wrap gap-7 sm:gap-5 justify-center md:items-stretch">
+                <img loading="lazy" class="object-cover w-full max-w-[22rem] border" src="./assets/nib.svg"
+                    alt="surat1">
+                <img loading="lazy" class="object-cover w-full max-w-[22rem] border" src="./assets/sh1.svg"
+                    alt="surat2">
+                <img loading="lazy" class="object-cover w-full max-w-[22rem] border" src="./assets/sh2.svg"
+                    alt="surat3">
+                <img loading="lazy" class="object-cover w-full max-w-[22rem] border" src="./assets/sil.svg"
+                    alt="surat4">
+                <img loading="lazy" class="object-cover w-full max-w-[22rem] border" src="./assets/siup.svg"
+                    alt="surat5">
+                <img loading="lazy" class="object-cover w-full max-w-[22rem] border" src="./assets/slh.svg"
+                    alt="surat6">
+                <img loading="lazy" class="object-cover w-full max-w-[22rem] border" src="./assets/sprc.svg"
+                    alt="surat7">
+            </div>
+        </section>
+    </main>
+    <footer id="kontak" class="bg-gray-950 text-white pb-5">
+        <div class="container mx-auto px-5 py-11 flex flex-wrap-reverse justify-between">
+            <div class="flex flex-col flex-1">
+                <h1 class="text-3xl mb-8">Ayo pesan katering di ADE MESTAKUNG ABADI</h1>
+                <div class="flex flex-col gap-5">
+                    <p class="">Perum Cendana F12 No.11 Kel. Belian Kec. Batam Kota – Batam</p>
+                    <p>+62 822 2226 6400</p>
+                    <p>dodikad@gmail.com</p>
+                </div>                
+            </div>
+            <img src="./assets/logo_white.png" alt="logoputih" loading="lazy" class="w-[40%] mb-11 min-w-[30rem] object-contain">
+        </div>
+        <p class="text-center text-sm mt-11">©Copyright 2024 PT. Ade Mestakung Abadi | All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>
